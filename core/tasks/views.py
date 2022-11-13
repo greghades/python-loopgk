@@ -8,6 +8,15 @@ from rest_framework import status
 from rest_framework import generics
 
 # Create your views here.
+
+class createNewTask(APIView):
+  def post(self, request, format=None):
+    newTask = TaskSerializer(data=request.data)
+    if newTask.is_valid():
+        newTask.save()
+        return Response({"msg": "Tarea creada exitosamente"}, status=status.HTTP_201_CREATED)
+    return Response(newTask.errors, status=status.HTTP_400_BAD_REQUEST)
+
 class getAllTasks(APIView):
   def get(self, request):
     print("LLegó un get!!!")
