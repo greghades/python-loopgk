@@ -1,1 +1,1 @@
-# Proyecto api django de tareas, se añadiran actualizaciones progresivamente
+Proyecto api django de tareas con las operaciones CRUD básicas
